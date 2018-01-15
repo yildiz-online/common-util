@@ -1,4 +1,4 @@
-package be.yildiz.common;
+package be.yildizgames.common.util;
 
 /**
  * @author Grégory Van den Borre
