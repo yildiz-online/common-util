@@ -23,63 +23,16 @@
 
 package be.yildizgames.common.util;
 
-import java.io.Serializable;
-
 /**
- * Utility class to compute a time between 2 calls.
- *
+ * This object must be manually deleted.
  * @author Grégory Van den Borre
  */
-@Deprecated
-public final class Timer implements Serializable {
-
-    /***/
-    private static final long serialVersionUID = -7461204360956063604L;
+@FunctionalInterface
+public interface Deletable {
 
     /**
-     * Time since the last action.
+     * Delete this object.
      */
-    private long lastTime = 0;
+    void delete();
 
-    /**
-     * Simple constructor.
-     */
-    @Deprecated
-    public Timer() {
-        super();
-    }
-
-    /**
-     * Compute the time since the last call.
-     *
-     * @return The time in millisecond between now and the last use of this
-     * method.
-     */
-    @Deprecated
-    public long getActionTime() {
-        final long now = System.currentTimeMillis();
-        if (this.lastTime == 0) {
-            this.lastTime = now;
-        }
-        final long time = now - this.lastTime;
-        this.lastTime = now;
-        return time;
-    }
-
-    /**
-     * @return the result of {@link Timer#getActionTime()} / 1000.
-     */
-    @Deprecated
-    public long getActionTimeInSec() {
-        final int milliSec = 1000;
-        return this.getActionTime() / milliSec;
-    }
-
-    /**
-     * Reset the timer to 0.
-     */
-    @Deprecated
-    public void reset() {
-        this.lastTime = 0;
-    }
 }

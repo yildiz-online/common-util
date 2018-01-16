@@ -23,63 +23,44 @@
 
 package be.yildizgames.common.util;
 
-import java.io.Serializable;
-
 /**
- * Utility class to compute a time between 2 calls.
+ * Resource meant to be loaded, contains the loaded state and the resource name.
  *
- * @author Grégory Van den Borre
+ * @author Grégory Van Den Borre
  */
-@Deprecated
-public final class Timer implements Serializable {
-
-    /***/
-    private static final long serialVersionUID = -7461204360956063604L;
+public abstract class Resource extends BaseRegisterable {
 
     /**
-     * Time since the last action.
+     * Loaded state.
      */
-    private long lastTime = 0;
+    private boolean loaded;
 
     /**
-     * Simple constructor.
-     */
-    @Deprecated
-    public Timer() {
-        super();
-    }
-
-    /**
-     * Compute the time since the last call.
+     * Full constructor.
      *
-     * @return The time in millisecond between now and the last use of this
-     * method.
+     * @param name Unique font name.
      */
-    @Deprecated
-    public long getActionTime() {
-        final long now = System.currentTimeMillis();
-        if (this.lastTime == 0) {
-            this.lastTime = now;
+    protected Resource(final String name) {
+        super(name);
+    }
+
+    /**
+     * Load the resource, can be only be done one time.
+     */
+    public final void load() {
+        if (!this.loaded) {
+            this.loadImpl();
+            this.loaded = true;
         }
-        final long time = now - this.lastTime;
-        this.lastTime = now;
-        return time;
     }
 
     /**
-     * @return the result of {@link Timer#getActionTime()} / 1000.
+     * Call the loading implementation.
      */
-    @Deprecated
-    public long getActionTimeInSec() {
-        final int milliSec = 1000;
-        return this.getActionTime() / milliSec;
-    }
+    protected abstract void loadImpl();
 
-    /**
-     * Reset the timer to 0.
-     */
-    @Deprecated
-    public void reset() {
-        this.lastTime = 0;
+    @Override
+    public final String toString() {
+        return this.getName();
     }
 }
