@@ -22,16 +22,37 @@
  *
  */
 
-package be.yildizgames.common.util.language;
+package be.yildizgames.common.util;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * @author Grégory Van den Borre
+ * @author Grégory Van Den Borre
  */
-public interface Language {
+class TimerTest {
 
-    String getDescription();
+    private Timer timer = new Timer();
 
-    String getShortName();
+    @Test
+    void getActionTimeInSecTest() throws InterruptedException {
+        assertEquals(0, this.timer.getActionTimeInSec());
+        Thread.sleep(1000);
+        assertEquals(1, this.timer.getActionTimeInSec());
+    }
 
-    int getId();
+    @Test
+    void getActionTimeTest() throws InterruptedException {
+        assertEquals(0, this.timer.getActionTime());
+        Thread.sleep(1000);
+        assertTrue(Checker.inRange(this.timer.getActionTime(), 950, 1050));
+    }
+
+    @Test
+    void resetTimerTest() {
+        this.timer.reset();
+        assertTrue(this.timer.getActionTime() == 0);
+    }
 }

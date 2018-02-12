@@ -22,7 +22,7 @@
  *
  */
 
-package be.yildiz.common.language;
+package be.yildizgames.common.util.language;
 
 import java.util.stream.Stream;
 

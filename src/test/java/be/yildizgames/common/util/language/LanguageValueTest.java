@@ -24,14 +24,24 @@
 
 package be.yildizgames.common.util.language;
 
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
  * @author Grégory Van den Borre
  */
-public interface Language {
+class LanguageValueTest {
 
-    String getDescription();
-
-    String getShortName();
-
-    int getId();
+    /**
+     * Test the values in the enumeration.
+     */
+    @Test
+    void testLanguage() {
+        assertEquals(0, LanguageValue.EN.value);
+        assertEquals(1, LanguageValue.FR.value);
+        assertEquals("English", LanguageValue.EN.description);
+        assertEquals("Français", LanguageValue.FR.description);
+        assertEquals(2, LanguageValue.values().length);
+    }
 }
