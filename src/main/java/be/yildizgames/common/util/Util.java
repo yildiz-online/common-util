@@ -26,7 +26,6 @@ package be.yildizgames.common.util;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.management.ManagementFactory;
 import java.security.InvalidParameterException;
 import java.util.Random;
 
@@ -175,7 +174,7 @@ public interface Util {
     /**
      * @return The application PID value.
      */
-    static String getPid() {
-        return ManagementFactory.getRuntimeMXBean().getName();
+    static long getPid() {
+        return ProcessHandle.current().pid();
     }
 }
