@@ -24,35 +24,37 @@
 
 package be.yildizgames.common.util;
 
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 /**
- * @author Grégory Van Den Borre
+ * @author Grégory Van den Borre
  */
-class TimerTest {
+public class Terminal {
 
-    private Timer timer = new Timer();
-
-    @Test
-    void getActionTimeInSecTest() throws InterruptedException {
-        assertEquals(0, this.timer.getActionTimeInSec());
-        Thread.sleep(1000);
-        assertEquals(1, this.timer.getActionTimeInSec());
+    private Terminal() {
+        super();
     }
 
-    @Test
-    void getActionTimeTest() throws InterruptedException {
-        assertEquals(0, this.timer.getActionTime());
-        Thread.sleep(1000);
-        assertTrue(Checker.inRange(this.timer.getActionTime(), 950, 1050));
+    public static void print(String t) {
+        System.out.println(t);
     }
 
-    @Test
-    void resetTimerTest() {
-        this.timer.reset();
-        assertTrue(this.timer.getActionTime() == 0);
+    public static void print(Object t) {
+        System.out.println(t);
     }
+
+    public static void print(int t) {
+        System.out.println(t);
+    }
+
+    public static void print(float t) {
+        System.out.println(t);
+    }
+
+    public static void print(double t) {
+        System.out.println(t);
+    }
+
+    public static void print(char t) {
+        System.out.println(t);
+    }
+
 }
