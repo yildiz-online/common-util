@@ -177,4 +177,23 @@ public interface Util {
     static long getPid() {
         return ProcessHandle.current().pid();
     }
+
+    /**
+     * Check that every float in the first array are bigger than the second at
+     * the same index. i.e: a[3] = 4 and b[3] = 2 will return
+     * <code>false</code>.
+     *
+     * @param a First array to check.
+     * @param b Second array to check.
+     * @return <code>true</code> if all element at same index of first array are
+     * bigger than in second array.
+     */
+    static boolean checkBiggerOrEqual(final float[] a, final float[] b) {
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] < b[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
