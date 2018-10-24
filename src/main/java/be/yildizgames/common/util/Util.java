@@ -24,8 +24,8 @@
 
 package be.yildizgames.common.util;
 
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.security.InvalidParameterException;
 import java.util.Random;
 
@@ -60,8 +60,8 @@ public interface Util {
      * @throws IOException Exception thrown from the runtime exec method.
      */
     static void execute(final String applicationName, final String workingDirectory) throws IOException {
-        Runtime.getRuntime().exec(new String[]{new File(workingDirectory + File.separator + applicationName).getAbsolutePath()}, null,
-                new File(workingDirectory).getAbsoluteFile());
+        Runtime.getRuntime().exec(new String[]{Paths.get(workingDirectory, applicationName).toAbsolutePath().toString()}, null,
+                Paths.get(workingDirectory).toFile().getAbsoluteFile());
     }
 
     /**
