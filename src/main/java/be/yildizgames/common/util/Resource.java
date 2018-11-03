@@ -61,6 +61,16 @@ public abstract class Resource extends BaseRegisterable {
     protected abstract void loadImpl();
 
     @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj) && this.loaded == Resource.class.cast(obj).loaded;
+    }
+
+    @Override
     public final String toString() {
         return this.getName();
     }
