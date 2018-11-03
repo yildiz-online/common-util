@@ -46,6 +46,16 @@ class ResourceTest {
     }
 
     @Nested
+    class ToString {
+
+        @Test
+        void happyFlow() {
+            Resource r = new DummyResource();
+            Assertions.assertEquals(r.getName(), r.toString());
+        }
+    }
+
+    @Nested
     class Equals {
 
         @Test
@@ -56,11 +66,47 @@ class ResourceTest {
         }
 
         @Test
+        void loaded() {
+            Resource r = new DummyResource();
+            r.load();
+            Resource r2 = new DummyResource();
+            r2.load();
+            Assertions.assertEquals(r, r2);
+        }
+
+        @Test
+        void notLoaded() {
+            Resource r = new DummyResource();
+            r.load();
+            Resource r2 = new DummyResource();
+            Assertions.assertNotEquals(r, r2);
+        }
+
+        @Test
         void differentName() {
             Resource r = new DummyResource();
             Resource r2 = new DummyResource("tt");
             Assertions.assertNotEquals(r, r2);
         }
+    }
+
+    @Nested
+    class HashCode {
+
+        @Test
+        void same() {
+            Resource r = new DummyResource();
+            Resource r2 = new DummyResource();
+            Assertions.assertEquals(r.hashCode(), r2.hashCode());
+        }
+
+        @Test
+        void notSame() {
+            Resource r = new DummyResource();
+            Resource r2 = new DummyResource("tt");
+            Assertions.assertNotEquals(r.hashCode(), r2.hashCode());
+        }
+
     }
 
     private final class DummyResource extends Resource {
