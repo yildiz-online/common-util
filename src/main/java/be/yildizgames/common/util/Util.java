@@ -42,6 +42,13 @@ public class Util {
     private static final Random RANDOM = new Random();
 
     /**
+     * Private constructor to prevent instantiation.
+     */
+    private Util() {
+        super();
+    }
+
+    /**
      * Test equality on two float.
      *
      * @param d1 float to test.
