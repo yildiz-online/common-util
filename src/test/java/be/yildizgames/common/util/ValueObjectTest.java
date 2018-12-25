@@ -64,7 +64,7 @@ class ValueObjectTest {
 
         @Test
         void base() {
-            BaseTest<ValueObject> b = new BaseTest<>(new ValueObject(5), new ValueObject(5), new ValueObject(6));
+            BaseEqualsCheck<ValueObject> b = new BaseEqualsCheck<>(new ValueObject(5), new ValueObject(5), new ValueObject(6));
             b.all();
         }
     }

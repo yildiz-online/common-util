@@ -24,6 +24,7 @@
 
 package be.yildizgames.common.util;
 
+import be.yildizgames.common.exception.implementation.ImplementationException;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -88,7 +89,7 @@ final class StringUtilTest {
 
         @Test
         void fromNull() {
-            assertThrows(AssertionError.class, () -> StringUtil.buildRandomString(null));
+            assertThrows(ImplementationException.class, () -> StringUtil.buildRandomString(null));
         }
     }
 
@@ -119,7 +120,7 @@ final class StringUtilTest {
         @Test
         void withNullBase() {
             String[] replacement = {"test"};
-            assertThrows(NullPointerException.class, () -> StringUtil.fillVariable(null, replacement));
+            assertThrows(ImplementationException.class, () -> StringUtil.fillVariable(null, replacement));
         }
 
         @Test

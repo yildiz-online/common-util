@@ -34,12 +34,19 @@ import java.util.Random;
  *
  * @author Grégory Van den Borre
  */
-public interface Util {
+public class Util {
 
     /**
      * Random used to generate numbers.
      */
-    Random RANDOM = new Random();
+    private static final Random RANDOM = new Random();
+
+    /**
+     * Private constructor to prevent instantiation.
+     */
+    private Util() {
+        super();
+    }
 
     /**
      * Test equality on two float.
@@ -48,7 +55,7 @@ public interface Util {
      * @param d2 Other float to test.
      * @return True is f1 and f2 are considered equals.
      */
-    static boolean equalFloat(final float d1, final float d2) {
+    public static boolean equalFloat(final float d1, final float d2) {
         return Float.compare(d1, d2) == 0;
     }
 
@@ -59,7 +66,7 @@ public interface Util {
      * @param workingDirectory Root is considered as calling application working directory.
      * @throws IOException Exception thrown from the runtime exec method.
      */
-    static void execute(final String applicationName, final String workingDirectory) throws IOException {
+    public static void execute(final String applicationName, final String workingDirectory) throws IOException {
         Runtime.getRuntime().exec(new String[]{Paths.get(workingDirectory, applicationName).toAbsolutePath().toString()}, null,
                 Paths.get(workingDirectory).toFile().getAbsoluteFile());
     }
@@ -69,7 +76,7 @@ public interface Util {
      *
      * @return A random number.
      */
-    static int getRandom() {
+    public static int getRandom() {
         return Util.RANDOM.nextInt();
     }
 
@@ -79,7 +86,7 @@ public interface Util {
      * @param maxIncluded Max value to use(included in result).
      * @return A random number.
      */
-    static int getRandom(final int maxIncluded) {
+    public static int getRandom(final int maxIncluded) {
         return Util.RANDOM.nextInt(maxIncluded + 1);
     }
 
@@ -89,7 +96,7 @@ public interface Util {
      *
      * @param param Parameter to check
      */
-    static void greaterThanZero(final float param) {
+    public static void greaterThanZero(final float param) {
         if (param <= 0) {
             throw new InvalidParameterException("Parameter cannot be <= 0, current value is " + param);
         }
@@ -98,14 +105,14 @@ public interface Util {
     /**
      * @return true if the current operating system is Linux.
      */
-    static boolean isLinux() {
+    public static boolean isLinux() {
         return "linux".equalsIgnoreCase(System.getProperty("os.name"));
     }
 
     /**
      * @return true If the platform is X86.
      */
-    static boolean isX86() {
+    public static boolean isX86() {
         return "x86".equals(System.getProperty("os.arch"));
     }
 
@@ -117,7 +124,7 @@ public interface Util {
      * @return The value if it is smaller than the maximum, else return the
      * maximum.
      */
-    static float setLimitedValue(final float value, final float maxValue) {
+    public static float setLimitedValue(final float value, final float maxValue) {
         if (value < maxValue) {
             return value;
         }
@@ -130,7 +137,7 @@ public interface Util {
      * @param value Value to check.
      * @return The value.
      */
-    static float setPositiveValue(final float value) {
+    public static float setPositiveValue(final float value) {
         if (value < 0) {
             return 0;
         }
@@ -145,7 +152,7 @@ public interface Util {
      * @param max   Maximum value.
      * @return The value.
      */
-    static float setValue(final float value, final float min, final float max) {
+    public static float setValue(final float value, final float min, final float max) {
         if (value < min) {
             return min;
         } else if (value > max) {
@@ -162,7 +169,7 @@ public interface Util {
      * @param max   Maximum value.
      * @return The value.
      */
-    static int setValue(final int value, final int min, final int max) {
+    public static int setValue(final int value, final int min, final int max) {
         if (value < min) {
             return min;
         } else if (value > max) {
@@ -174,7 +181,7 @@ public interface Util {
     /**
      * @return The application PID value.
      */
-    static long getPid() {
+    public static long getPid() {
         return ProcessHandle.current().pid();
     }
 
@@ -188,7 +195,7 @@ public interface Util {
      * @return <code>true</code> if all element at same index of first array are
      * bigger than in second array.
      */
-    static boolean checkBiggerOrEqual(final float[] a, final float[] b) {
+    public static boolean checkBiggerOrEqual(final float[] a, final float[] b) {
         for (int i = 0; i < a.length; i++) {
             if (a[i] < b[i]) {
                 return false;

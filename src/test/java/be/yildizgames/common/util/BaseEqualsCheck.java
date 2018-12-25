@@ -32,13 +32,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * @author Grégory Van den Borre
  */
-public class BaseTest<T>{
+public class BaseEqualsCheck<T>{
 
     private final T baseObject;
     private final T same;
     private final T different;
 
-    public BaseTest(T baseObject, T same, T different) {
+    public BaseEqualsCheck(T baseObject, T same, T different) {
         super();
         this.baseObject = baseObject;
         this.same = same;
