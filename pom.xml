@@ -2,7 +2,7 @@
 <!--
   ~ This file is part of the Yildiz-Engine project, licenced under the MIT License  (MIT)
   ~
-  ~  Copyright (c) 2018 Grégory Van den Borre
+  ~  Copyright (c) 2019 Grégory Van den Borre
   ~
   ~  More infos available: https://www.yildiz-games.be
   ~
@@ -31,7 +31,7 @@
   <url>https://bitbucket.org/yildiz-engine-team/common-util</url>
 
   <artifactId>common-util</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
 
   <packaging>jar</packaging>
   <inceptionYear>2017</inceptionYear>
@@ -43,7 +43,7 @@
   <parent>
     <artifactId>parent</artifactId>
     <groupId>be.yildiz-games</groupId>
-    <version>2.2.5</version>
+    <version>3.0.1</version>
   </parent>
 
   <dependencies>
@@ -54,12 +54,7 @@
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.platform</groupId>
-      <artifactId>junit-platform-launcher</artifactId>
+      <artifactId>junit-jupiter-engine</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
