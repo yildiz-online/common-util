@@ -28,13 +28,13 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 
-class ResourceTest {
+public class ResourceTest {
 
     @Nested
-    class Load {
+    public class Load {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             DummyResource r = new DummyResource();
             Assertions.assertEquals(0, r.loadNumber);
             r.load();
@@ -46,27 +46,27 @@ class ResourceTest {
     }
 
     @Nested
-    class ToString {
+    public class ToString {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             Resource r = new DummyResource();
             Assertions.assertEquals(r.getName(), r.toString());
         }
     }
 
     @Nested
-    class Equals {
+    public class Equals {
 
         @Test
-        void sameName() {
+        public void sameName() {
             Resource r = new DummyResource();
             Resource r2 = new DummyResource();
             Assertions.assertEquals(r, r2);
         }
 
         @Test
-        void loaded() {
+        public void loaded() {
             Resource r = new DummyResource();
             r.load();
             Resource r2 = new DummyResource();
@@ -75,7 +75,7 @@ class ResourceTest {
         }
 
         @Test
-        void notLoaded() {
+        public void notLoaded() {
             Resource r = new DummyResource();
             r.load();
             Resource r2 = new DummyResource();
@@ -83,7 +83,7 @@ class ResourceTest {
         }
 
         @Test
-        void differentName() {
+        public void differentName() {
             Resource r = new DummyResource();
             Resource r2 = new DummyResource("tt");
             Assertions.assertNotEquals(r, r2);
@@ -91,17 +91,17 @@ class ResourceTest {
     }
 
     @Nested
-    class HashCode {
+    public class HashCode {
 
         @Test
-        void same() {
+        public void same() {
             Resource r = new DummyResource();
             Resource r2 = new DummyResource();
             Assertions.assertEquals(r.hashCode(), r2.hashCode());
         }
 
         @Test
-        void notSame() {
+        public void notSame() {
             Resource r = new DummyResource();
             Resource r2 = new DummyResource("tt");
             Assertions.assertNotEquals(r.hashCode(), r2.hashCode());

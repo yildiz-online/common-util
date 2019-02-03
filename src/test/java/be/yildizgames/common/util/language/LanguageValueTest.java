@@ -31,13 +31,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Grégory Van den Borre
  */
-class LanguageValueTest {
+public class LanguageValueTest {
 
     /**
      * Test the values in the enumeration.
      */
     @Test
-    void testLanguage() {
+    public void testLanguage() {
         assertEquals(0, LanguageValue.EN.value);
         assertEquals(1, LanguageValue.FR.value);
         assertEquals("English", LanguageValue.EN.description);

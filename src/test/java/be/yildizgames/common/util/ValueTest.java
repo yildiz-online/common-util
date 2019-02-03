@@ -31,17 +31,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class ValueTest {
+public class ValueTest {
 
     @Test
-    void testValue() {
+    public void testValue() {
         BoundedValue v = new BoundedValue();
         assertEquals(0, v.getMax());
         assertEquals(0, v.getValue());
     }
 
     @Test
-    void testGetSetValue() {
+    public void testGetSetValue() {
         BoundedValue v = new BoundedValue();
         v.setValue(15);
         assertEquals(0, v.getValue());
@@ -55,7 +55,7 @@ class ValueTest {
     }
 
     @Test
-    void testGetSetMax() {
+    public void testGetSetMax() {
         BoundedValue v = new BoundedValue();
         assertEquals(0, v.getMax());
         v.setMax(100);
@@ -69,7 +69,7 @@ class ValueTest {
     }
 
     @Test
-    void testAdd() {
+    public void testAdd() {
         BoundedValue v = new BoundedValue();
         v.setMax(100);
         v.setValue(15);
@@ -82,7 +82,7 @@ class ValueTest {
     }
 
     @Test
-    void testIsZero() {
+    public void testIsZero() {
         BoundedValue v = new BoundedValue();
         v.setMax(100);
         v.setValue(15);
@@ -92,7 +92,7 @@ class ValueTest {
     }
 
     @Test
-    void testGetRatio() {
+    public void testGetRatio() {
         BoundedValue v = new BoundedValue();
         v.setMax(100);
         v.setValue(15);
@@ -100,7 +100,7 @@ class ValueTest {
     }
 
     @Test
-    void testToString() {
+    public void testToString() {
         BoundedValue v = new BoundedValue();
         v.setMax(100);
         v.setValue(15);
@@ -108,7 +108,7 @@ class ValueTest {
     }
 
     @Test
-    void testSetValueAndMax() {
+    public void testSetValueAndMax() {
         BoundedValue v = new BoundedValue();
         v.setValueAndMax(50);
         assertEquals(50, v.getValue());
@@ -119,7 +119,7 @@ class ValueTest {
     }
 
     @Test
-    void testIsMoreThan() {
+    public void testIsMoreThan() {
         BoundedValue v = new BoundedValue();
         v.setValueAndMax(50);
         assertTrue(v.isMoreThan(10));

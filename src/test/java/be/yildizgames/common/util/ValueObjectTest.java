@@ -33,37 +33,37 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 /**
  * @author Grégory Van den Borre
  */
-class ValueObjectTest {
+public class ValueObjectTest {
 
     @Nested
-    class Constructor {
+    public class Constructor {
 
        @Test
-       void happyFlow() {
+       public void happyFlow() {
            ValueObject v = new ValueObject(5);
            assertEquals(5, v.value);
        }
     }
 
     @Nested
-    class HashCodeEquals {
+    public class HashCodeEquals {
 
         @Test
-        void sameValue() {
+        public void sameValue() {
             ValueObject v = new ValueObject(5);
             ValueObject v2 = new ValueObject(5);
             assertEquals(v, v2);
         }
 
         @Test
-        void differentValue() {
+        public void differentValue() {
             ValueObject v = new ValueObject(5);
             ValueObject v2 = new ValueObject(6);
             assertNotEquals(v, v2);
         }
 
         @Test
-        void base() {
+        public void base() {
             BaseEqualsCheck<ValueObject> b = new BaseEqualsCheck<>(new ValueObject(5), new ValueObject(5), new ValueObject(6));
             b.all();
         }

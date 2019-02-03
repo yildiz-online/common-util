@@ -36,45 +36,45 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * @author Grégory Van den Borre
  */
-class BaseRegisterableTest {
+public class BaseRegisterableTest {
 
     @Nested
-    class Constructor {
+    public class Constructor {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             BaseRegisterable registerable = new BaseRegisterable("test");
             assertEquals("test", registerable.getName());
         }
 
         @Test
-        void withNull() {
+        public void withNull() {
             assertThrows(AssertionError.class, () -> new BaseRegisterable(null));
         }
     }
 
     @Nested
-    class ToString {
+    public class ToString {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             BaseRegisterable registerable = new BaseRegisterable("test");
             assertEquals("test", registerable.toString());
         }
     }
 
     @Nested
-    class HashCode {
+    public class HashCode {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             BaseRegisterable registerable = new BaseRegisterable("test");
             BaseRegisterable registerable2 = new BaseRegisterable("test");
             assertEquals(registerable.hashCode(), registerable2.hashCode());
         }
 
         @Test
-        void different() {
+        public void different() {
             BaseRegisterable registerable = new BaseRegisterable("test");
             BaseRegisterable registerable2 = new BaseRegisterable("test2");
             assertNotEquals(registerable.hashCode(), registerable2.hashCode());
@@ -82,31 +82,31 @@ class BaseRegisterableTest {
     }
 
     @Nested
-    class Equals {
+    public class Equals {
 
         @Test
-        void sameInstance() {
+        public void sameInstance() {
             BaseRegisterable registerable = new BaseRegisterable("test");
             assertTrue(registerable.equals(registerable));
         }
 
         @Test
-        void sameValue() {
+        public void sameValue() {
             assertTrue(new BaseRegisterable("test").equals(new BaseRegisterable("test")));
         }
 
         @Test
-        void differentValue() {
+        public void differentValue() {
             assertFalse(new BaseRegisterable("test").equals(new BaseRegisterable("test2")));
         }
 
         @Test
-        void differentType() {
+        public void differentType() {
             assertFalse(new BaseRegisterable("test").equals("test"));
         }
 
         @Test
-        void withNull() {
+        public void withNull() {
             assertFalse(new BaseRegisterable("test").equals(null));
         }
     }
