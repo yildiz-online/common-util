@@ -15,6 +15,8 @@ REPO_USER=$SECRETS | jq -r '.data.REPO_USER'
 SONAR=$SECRETS | jq -r '.data.SONAR'
 SONAR_ORGANIZATION=$SECRETS | jq -r '.data.SONAR_ORGANIZATION'
 
+echo $SONAR_ORGANIZATION
+
 
 cp ../build-resources/maven-version-rules.xml ./
 
