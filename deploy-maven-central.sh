@@ -4,16 +4,16 @@ echo "Building $BRANCH branch"
 
 SECRETS=$(curl -H "X-Vault-Token: $VAULT_TOKEN" -X GET https://vault.yildiz-games.be/v1/secret/yildiz-engine)
 
-GH_TOKEN=$(jq -r ".data.GH_TOKEN" $SECRETS)
-GPG_KEY=$(jq -r ".data.GPG_KEY" $SECRETS)
-GPG_PWD=$(jq -r ".data.GPG_PWD" $SECRETS)
-OPENSSL_PWD=$(jq -r ".data.OPENSSL_PWD" $SECRETS)
-OSSRH_PWD_TOKEN=$(jq -r ".data.OSSRH_PWD_TOKEN" $SECRETS)
-OSSRH_USER_TOKEN=$(jq -r ".data.OSSRH_USER_TOKEN" $SECRETS)
-REPO_PASSWORD=$(jq -r ".data.REPO_PASSWORD" $SECRETS)
-REPO_USER=$(jq -r ".data.REPO_USER" $SECRETS)
-SONAR=$(jq -r ".data.SONAR" $SECRETS)
-SONAR_ORGANIZATION=$(jq -r ".data.SONAR_ORGANIZATION" $SECRETS)
+GH_TOKEN=$($SECRETS | jq -r ".data.GH_TOKEN")
+GPG_KEY=$($SECRETS | jq -r ".data.GPG_KEY")
+GPG_PWD=$($SECRETS | jq -r ".data.GPG_PWD")
+OPENSSL_PWD=$($SECRETS | jq -r ".data.OPENSSL_PWD")
+OSSRH_PWD_TOKEN=$($SECRETS | jq -r ".data.OSSRH_PWD_TOKEN")
+OSSRH_USER_TOKEN=$($SECRETS | jq -r ".data.OSSRH_USER_TOKEN")
+REPO_PASSWORD=$($SECRETS | jq -r ".data.REPO_PASSWORD")
+REPO_USER=$($SECRETS | jq -r ".data.REPO_USER")
+SONAR=$($SECRETS | jq -r ".data.SONAR")
+SONAR_ORGANIZATION=$($SECRETS | jq -r ".data.SONAR_ORGANIZATION")
 
 
 cp ../build-resources/maven-version-rules.xml ./
