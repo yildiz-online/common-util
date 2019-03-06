@@ -13,10 +13,10 @@ OSSRH_USER_TOKEN=$SECRETS | jq -r '.data.OSSRH_USER_TOKEN'
 REPO_PASSWORD=$SECRETS | jq -r '.data.REPO_PASSWORD'
 REPO_USER=$SECRETS | jq -r '.data.REPO_USER'
 SONAR=$SECRETS | jq -r '.data.SONAR'
-SONAR_ORGANIZATION=$SECRETS | jq -r '.data.SONAR_ORGANIZATION'
+$SECRETS | jq -r '.data.SONAR_ORGANIZATION' | SONAR_ORGANIZATION
 
 echo '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'
-echo "$($SECRETS | jq -r '.data.SONAR_ORGANIZATION')"
+echo "$SONAR_ORGANIZATION"
 echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
 
 cp ../build-resources/maven-version-rules.xml ./
