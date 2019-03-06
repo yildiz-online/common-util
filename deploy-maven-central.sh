@@ -6,21 +6,16 @@ SECRETS=$(curl -sS -H "X-Vault-Token: $VAULT_TOKEN" -X GET https://vault.yildiz-
 
 TEST=$(echo $SECRETS | jq -r '.data.SONAR_ORGANIZATION')
 
-echo '<<<<<<'
-echo "$TEST"
-
-#GH_TOKEN=$SECRETS | jq -r '.data.GH_TOKEN'
-#GPG_KEY=$SECRETS | jq -r '.data.GPG_KEY'
-#GPG_PWD=$SECRETS | jq -r '.data.GPG_PWD'
-#OPENSSL_PWD=$SECRETS | jq -r '.data.OPENSSL_PWD'
-#OSSRH_PWD_TOKEN=$SECRETS | jq -r '.data.OSSRH_PWD_TOKEN'
-#OSSRH_USER_TOKEN=$SECRETS | jq -r '.data.OSSRH_USER_TOKEN'
-#REPO_PASSWORD=$SECRETS | jq -r '.data.REPO_PASSWORD'
-#REPO_USER=$SECRETS | jq -r '.data.REPO_USER'
-#SONAR=$SECRETS | jq -r '.data.SONAR'
-#jq -r '.data.SONAR_ORGANIZATION'
-
-cp ../build-resources/maven-version-rules.xml ./
+GH_TOKEN=$(echo $SECRETS | jq -r '.data.GH_TOKEN')
+GPG_KEY=$(echo $SECRETS | jq -r '.data.GPG_KEY')
+GPG_PWD=$(echo $SECRETS | jq -r '.data.GPG_PWD')
+OPENSSL_PWD=$(echo $SECRETS | jq -r '.data.OPENSSL_PWD')
+OSSRH_PWD_TOKEN=$(echo $SECRETS | jq -r '.data.OSSRH_PWD_TOKEN')
+OSSRH_USER_TOKEN=$(echo $SECRETS | jq -r '.data.OSSRH_USER_TOKEN')
+REPO_PASSWORD=$(echo $SECRETS | jq -r '.data.REPO_PASSWORD')
+REPO_USER=$(echo $SECRETS | jq -r '.data.REPO_USER'-
+SONAR=$(echo $SECRETS | jq -r '.data.SONAR')
+SONAR_ORGANIZATION=$(echo $SECRETS | jq -r '.data.SONAR_ORGANIZATION')
 
 if [ "$BRANCH" = "develop" ]; then
   openssl version -a
