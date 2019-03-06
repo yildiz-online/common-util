@@ -4,7 +4,7 @@ echo "Building $BRANCH branch"
 
 SECRETS=$(curl -sS -H "X-Vault-Token: $VAULT_TOKEN" -X GET https://vault.yildiz-games.be/v1/secret/yildiz-engine)
 
-TEST=$($SECRETS | jq -r '.data.SONAR_ORGANIZATION')
+TEST=$(echo $SECRETS | jq -r '.data.SONAR_ORGANIZATION')
 
 echo '<<<<<<'
 echo "$TEST"
