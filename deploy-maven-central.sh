@@ -15,7 +15,7 @@ OSSRH_USER_TOKEN=$SECRETS | jq -r '.data.OSSRH_USER_TOKEN'
 REPO_PASSWORD=$SECRETS | jq -r '.data.REPO_PASSWORD'
 REPO_USER=$SECRETS | jq -r '.data.REPO_USER'
 SONAR=$SECRETS | jq -r '.data.SONAR'
-$SECRETS | jq -r '.data.SONAR_ORGANIZATION'
+jq -r '.data.SONAR_ORGANIZATION'
 
 echo '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'
 echo "$SONAR_ORGANIZATION"
