@@ -4,18 +4,18 @@ echo "Building $BRANCH branch"
 
 SECRETS=$(curl -sS -H "X-Vault-Token: $VAULT_TOKEN" -X GET https://vault.yildiz-games.be/v1/secret/yildiz-engine)
 
-echo $SECRETS
+echo $SECRETS | jq -r '.'
 
-GH_TOKEN=$SECRETS | jq -r '.data.GH_TOKEN'
-GPG_KEY=$SECRETS | jq -r '.data.GPG_KEY'
-GPG_PWD=$SECRETS | jq -r '.data.GPG_PWD'
-OPENSSL_PWD=$SECRETS | jq -r '.data.OPENSSL_PWD'
-OSSRH_PWD_TOKEN=$SECRETS | jq -r '.data.OSSRH_PWD_TOKEN'
-OSSRH_USER_TOKEN=$SECRETS | jq -r '.data.OSSRH_USER_TOKEN'
-REPO_PASSWORD=$SECRETS | jq -r '.data.REPO_PASSWORD'
-REPO_USER=$SECRETS | jq -r '.data.REPO_USER'
-SONAR=$SECRETS | jq -r '.data.SONAR'
-jq -r '.data.SONAR_ORGANIZATION'
+#GH_TOKEN=$SECRETS | jq -r '.data.GH_TOKEN'
+#GPG_KEY=$SECRETS | jq -r '.data.GPG_KEY'
+#GPG_PWD=$SECRETS | jq -r '.data.GPG_PWD'
+#OPENSSL_PWD=$SECRETS | jq -r '.data.OPENSSL_PWD'
+#OSSRH_PWD_TOKEN=$SECRETS | jq -r '.data.OSSRH_PWD_TOKEN'
+#OSSRH_USER_TOKEN=$SECRETS | jq -r '.data.OSSRH_USER_TOKEN'
+#REPO_PASSWORD=$SECRETS | jq -r '.data.REPO_PASSWORD'
+#REPO_USER=$SECRETS | jq -r '.data.REPO_USER'
+#SONAR=$SECRETS | jq -r '.data.SONAR'
+#jq -r '.data.SONAR_ORGANIZATION'
 
 echo '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'
 echo "$SONAR_ORGANIZATION"
