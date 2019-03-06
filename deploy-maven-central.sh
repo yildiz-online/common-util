@@ -13,7 +13,7 @@ OPENSSL_PWD=$(echo $SECRETS | jq -r '.data.OPENSSL_PWD')
 OSSRH_PWD_TOKEN=$(echo $SECRETS | jq -r '.data.OSSRH_PWD_TOKEN')
 OSSRH_USER_TOKEN=$(echo $SECRETS | jq -r '.data.OSSRH_USER_TOKEN')
 REPO_PASSWORD=$(echo $SECRETS | jq -r '.data.REPO_PASSWORD')
-REPO_USER=$(echo $SECRETS | jq -r '.data.REPO_USER'-
+REPO_USER=$(echo $SECRETS | jq -r '.data.REPO_USER')
 SONAR=$(echo $SECRETS | jq -r '.data.SONAR')
 SONAR_ORGANIZATION=$(echo $SECRETS | jq -r '.data.SONAR_ORGANIZATION')
 
