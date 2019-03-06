@@ -4,7 +4,7 @@ echo "Building $BRANCH branch"
 
 SECRETS=$(curl -sS -H "X-Vault-Token: $VAULT_TOKEN" -X GET https://vault.yildiz-games.be/v1/secret/yildiz-engine)
 
-echo $SECRETS | jq -r '.'
+echo $SECRETS | jq -r '.data'
 
 #GH_TOKEN=$SECRETS | jq -r '.data.GH_TOKEN'
 #GPG_KEY=$SECRETS | jq -r '.data.GPG_KEY'
@@ -16,10 +16,6 @@ echo $SECRETS | jq -r '.'
 #REPO_USER=$SECRETS | jq -r '.data.REPO_USER'
 #SONAR=$SECRETS | jq -r '.data.SONAR'
 #jq -r '.data.SONAR_ORGANIZATION'
-
-echo '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'
-echo "$SONAR_ORGANIZATION"
-echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
 
 cp ../build-resources/maven-version-rules.xml ./
 
