@@ -7,7 +7,7 @@ SECRETS=$(curl -sS -H "X-Vault-Token: $VAULT_TOKEN" -X GET https://vault.yildiz-
 TEST = $(echo $SECRETS | jq -r '.data.SONAR_ORGANIZATION')
 
 echo '<<<<<<'
-echo '$TEST'
+echo "$TEST"
 
 #GH_TOKEN=$SECRETS | jq -r '.data.GH_TOKEN'
 #GPG_KEY=$SECRETS | jq -r '.data.GPG_KEY'
