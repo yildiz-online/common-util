@@ -4,6 +4,8 @@ echo "Building $BRANCH branch"
 
 SECRETS=$(curl -sS -H "X-Vault-Token: $VAULT_TOKEN" -X GET https://vault.yildiz-games.be/v1/secret/yildiz-engine)
 
+jq -v
+
 GH_TOKEN=$SECRETS | jq -r '.data.GH_TOKEN'
 GPG_KEY=$SECRETS | jq -r '.data.GPG_KEY'
 GPG_PWD=$SECRETS | jq -r '.data.GPG_PWD'
