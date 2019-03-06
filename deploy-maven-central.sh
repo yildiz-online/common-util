@@ -16,7 +16,7 @@ SONAR=$SECRETS | jq -r '.data.SONAR'
 SONAR_ORGANIZATION=$SECRETS | jq -r '.data.SONAR_ORGANIZATION'
 
 echo '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'
-echo "$SECRETS | jq -r '.data.SONAR_ORGANIZATION'"
+echo "$($SECRETS | jq -r '.data.SONAR_ORGANIZATION')"
 echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
 
 cp ../build-resources/maven-version-rules.xml ./
