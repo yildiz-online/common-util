@@ -25,3 +25,4 @@ elif [ "$BRANCH" = "master" ]; then
 else
   mvn -V -s ../build-resources/settings.xml clean package
 fi
+
