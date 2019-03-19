@@ -35,13 +35,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * @author Grégory Van Den Borre
  */
-final class UtilTest {
+public class UtilTest {
 
     private static final float EPSILON = 0.0000000001f;
 
     /***/
     @Test
-    void testEqualFloat() {
+    public void testEqualFloat() {
         float f1 = 5.00001f;
         float f2 = 549.654516545f;
         float result1 = f1 + f2;
@@ -56,7 +56,7 @@ final class UtilTest {
     }
 
     @Test
-    void testGetRandom() {
+    public void testGetRandom() {
         final int testLength = 1000;
         int[] tab = new int[testLength];
         for (int i = 0; i < testLength; i++) {
@@ -73,7 +73,7 @@ final class UtilTest {
 
     /***/
     @Test
-    void testGreaterThanZero() {
+    public void testGreaterThanZero() {
         assertThrows(InvalidParameterException.class, () -> Util.greaterThanZero(0));
         assertThrows(InvalidParameterException.class, () -> Util.greaterThanZero(-5));
         Util.greaterThanZero(0.001f);

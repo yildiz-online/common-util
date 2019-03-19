@@ -4,7 +4,7 @@
   ~
   ~  Copyright (c) 2019 Grégory Van den Borre
   ~
-  ~  More infos available: https://www.yildiz-games.be
+  ~  More infos available: https://engine.yildiz-games.be
   ~
   ~  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
   ~  documentation files (the "Software"), to deal in the Software without restriction, including without
@@ -31,7 +31,7 @@
   <url>https://bitbucket.org/yildiz-engine-team/common-util</url>
 
   <artifactId>common-util</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
 
   <packaging>jar</packaging>
   <inceptionYear>2017</inceptionYear>
@@ -43,23 +43,18 @@
   <parent>
     <artifactId>parent</artifactId>
     <groupId>be.yildiz-games</groupId>
-    <version>3.0.1</version>
+    <version>3.0.5</version>
   </parent>
 
   <dependencies>
     <dependency>
       <groupId>be.yildiz-games</groupId>
       <artifactId>common-exception</artifactId>
-      <version>1.0.2</version>
+      <version>1.0.4</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

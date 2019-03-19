@@ -37,13 +37,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * @author Grégory Van den Borre
  */
-final class StringUtilTest {
+public class StringUtilTest {
 
     @Nested
-    class ArrayToString {
+    public class ArrayToString {
 
         @Test
-        void happyFlowObject() {
+        public void happyFlowObject() {
             Object[] array = {"az", 5};
             String result = StringUtil.arrayToString(array);
             assertNotNull(result);
@@ -51,7 +51,7 @@ final class StringUtilTest {
         }
 
         @Test
-        void emptyObject() {
+        public void emptyObject() {
             Object[] array = {};
             String result = StringUtil.arrayToString(array);
             assertNotNull(result);
@@ -59,7 +59,7 @@ final class StringUtilTest {
         }
 
         @Test
-        void happyFlowFloats() {
+        public void happyFlowFloats() {
             float[] array = {};
             String result = StringUtil.arrayToString(array);
             assertNotNull(result);
@@ -67,7 +67,7 @@ final class StringUtilTest {
         }
 
         @Test
-        void emptyFloats() {
+        public void emptyFloats() {
             float[] array = {1f,1.2f,5f};
             String result = StringUtil.arrayToString(array);
             assertNotNull(result);
@@ -76,10 +76,10 @@ final class StringUtilTest {
     }
 
     @Nested
-    class BuildRandom {
+    public class BuildRandom {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             String s = StringUtil.buildRandomString("base");
             String s2 = StringUtil.buildRandomString("base");
             assertNotEquals(s, s2);
@@ -88,62 +88,62 @@ final class StringUtilTest {
         }
 
         @Test
-        void fromNull() {
+        public void fromNull() {
             assertThrows(ImplementationException.class, () -> StringUtil.buildRandomString(null));
         }
     }
 
     @Nested
-    class FillVariable {
+    public class FillVariable {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             String base = "hello ${0} !";
             String[] replacement = {"world"};
             assertEquals("hello world !", StringUtil.fillVariable(base, replacement));
         }
 
         @Test
-        void empty() {
+        public void empty() {
             String base = "hello ${0} !";
             String[] replacement = {};
             assertEquals("hello ${0} !", StringUtil.fillVariable(base, replacement));
         }
 
         @Test
-        void withSeveralBase() {
+        public void withSeveralBase() {
             String base = "hello ${0} ${0} !";
             String[] replacement = {"world"};
             assertEquals("hello world world !", StringUtil.fillVariable(base, replacement));
         }
 
         @Test
-        void withNullBase() {
+        public void withNullBase() {
             String[] replacement = {"test"};
             assertThrows(ImplementationException.class, () -> StringUtil.fillVariable(null, replacement));
         }
 
         @Test
-        void withNullReplacement() {
+        public void withNullReplacement() {
             assertEquals("base", StringUtil.fillVariable("base", null));
         }
 
         @Test
-        void withTooManyReplacement() {
+        public void withTooManyReplacement() {
             String base = "hello ${0} !";
             String[] replacement = {"world", "you", "all"};
             assertEquals("hello world !", StringUtil.fillVariable(base, replacement));
         }
 
         @Test
-        void withNotEnougReplacement() {
+        public void withNotEnougReplacement() {
             String base = "hello ${0} ${1} ${2} ${4} !";
             String[] replacement = {"world", "you", "all"};
             assertEquals("hello world you all ${4} !", StringUtil.fillVariable(base, replacement));
         }
 
         @Test
-        void withReplacementContainingNull() {
+        public void withReplacementContainingNull() {
             String base = "hello ${0} ${1} !";
             String[] replacement = {"world", null};
             assertThrows(NullPointerException.class, () -> StringUtil.fillVariable(base, replacement));
@@ -152,14 +152,14 @@ final class StringUtilTest {
     }
 
     @Test
-    void testRemoveChar() {
+    public void testRemoveChar() {
         String s = "abcdef";
         int pos = 2;
         assertEquals("abdef", StringUtil.removeChar(s, pos));
     }
 
     @Test
-    void testRemoveLastCharString() {
+    public void testRemoveLastCharString() {
         String s = "bla14";
         assertEquals("bla1", StringUtil.removeLastChar(s));
         s = "";
@@ -167,7 +167,7 @@ final class StringUtilTest {
     }
 
     @Test
-    void testRemoveLastCharStringBuilder() {
+    public void testRemoveLastCharStringBuilder() {
         StringBuilder s = new StringBuilder("bla14");
         assertEquals("bla1", StringUtil.removeLastChar(s));
         s = new StringBuilder();
@@ -175,7 +175,7 @@ final class StringUtilTest {
     }
 
     @Test
-    void testToString() {
+    public void testToString() {
         Object[] l = {"test", 5, 'x', new Object()};
         for (Object o : l) {
             assertEquals(o.toString(), StringUtil.toString(o));
