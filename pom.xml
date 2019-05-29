@@ -28,7 +28,7 @@
   <modelVersion>4.0.0</modelVersion>
   <name>Yildiz Common Util</name>
   <description>Common Util library for the yildiz project, contains miscellaneous utilities.</description>
-  <url>https://bitbucket.org/yildiz-engine-team/common-util</url>
+  <url>https://engine.yildiz-games.be</url>
 
   <artifactId>common-util</artifactId>
   <version>1.0.6-SNAPSHOT</version>
@@ -36,9 +36,9 @@
   <packaging>jar</packaging>
   <inceptionYear>2017</inceptionYear>
   <scm>
-    <connection>scm:git:https://bitbucket.org/yildiz-engine-team/common-util</connection>
-    <developerConnection>scm:git:https://bitbucket.org/yildiz-engine-team/common-util</developerConnection>
-    <url>https://bitbucket.org/yildiz-engine-team/common-util</url>
+    <connection>scm:git:https://github.com/yildiz-online/common-util</connection>
+    <developerConnection>scm:git:https://github.com/yildiz-online/common-util</developerConnection>
+    <url>https://github.com/yildiz-online/common-util</url>
   </scm>
   <parent>
     <artifactId>parent</artifactId>
