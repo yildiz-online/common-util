@@ -25,8 +25,10 @@
 package be.yildizgames.common.util;
 
 /**
+ * @deprecated moved to common-model
  * @author Grégory Van den Borre
  */
+@Deprecated
 public class ValueObject {
 
     /**
