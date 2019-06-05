@@ -24,9 +24,8 @@
 
 package be.yildizgames.common.util;
 
-import be.yildizgames.common.exception.implementation.ImplementationException;
-
 import java.util.Collection;
+import java.util.Objects;
 
 /**
  * Utility class for manipulating String object and building toString method.
@@ -94,7 +93,7 @@ public interface StringUtil {
      * System.nanoTime).
      */
     static String buildRandomString(final String base) {
-        ImplementationException.throwForNull(base);
+        Objects.requireNonNull(base);
         final StringBuilder sb = new StringBuilder(base);
         sb.append("_");
         sb.append(System.nanoTime());
@@ -111,7 +110,7 @@ public interface StringUtil {
      * @return A new String will placeholders replaced by provided values.
      */
     static String fillVariable(String base, Object[] replacement) {
-        ImplementationException.throwForNull(base);
+        Objects.requireNonNull(base);
         if(replacement == null || replacement.length == 0) {
             return base;
         }

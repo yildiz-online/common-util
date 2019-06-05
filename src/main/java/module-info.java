@@ -23,7 +23,6 @@
  */
 
 module be.yildizgames.common.util {
-    requires be.yildizgames.common.exception;
 
     exports be.yildizgames.common.util;
     exports be.yildizgames.common.util.language;

@@ -26,7 +26,7 @@
 
 package be.yildizgames.common.util;
 
-import be.yildizgames.common.exception.implementation.ImplementationException;
+import java.util.Objects;
 
 public class NetworkHost {
 
@@ -36,7 +36,7 @@ public class NetworkHost {
 
     private NetworkHost(String host) {
         super();
-        ImplementationException.throwForNull(host);
+        Objects.requireNonNull(host);
         this.value = host;
     }
 
