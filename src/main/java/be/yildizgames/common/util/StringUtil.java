@@ -159,7 +159,7 @@ public interface StringUtil {
      * @return The string without the first char.
      */
     static String removeFirstChar(final String string) {
-        return string.substring(1, string.length());
+        return string.substring(1);
     }
 
     /**

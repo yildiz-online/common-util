@@ -29,6 +29,7 @@ import org.junit.jupiter.api.Test;
 import java.security.InvalidParameterException;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -65,7 +66,7 @@ public class UtilTest {
         for (int i = 0; i < testLength; i++) {
             for (int j = 0; j < testLength; j++) {
                 if (i != j) {
-                    assertFalse(tab[i] == tab[j]);
+                    assertNotEquals(tab[i], tab[j]);
                 }
             }
         }

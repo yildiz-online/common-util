@@ -25,9 +25,7 @@
 package be.yildizgames.common.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Grégory Van den Borre
@@ -56,23 +54,23 @@ public class BaseEqualsCheck<T>{
     }
 
     public void equalsSame() {
-        assertTrue(baseObject.equals(same));
+        assertEquals(baseObject, same);
     }
 
     public void equalsSameInstance() {
-        assertTrue(baseObject.equals(baseObject));
+        assertEquals(baseObject, baseObject);
     }
 
     public void equalsDifferent() {
-        assertFalse(baseObject.equals(different));
+        assertNotEquals(baseObject, different);
     }
 
     public void equalsNull() {
-        assertFalse(baseObject.equals(null));
+        assertNotEquals(null, baseObject);
     }
 
     public void equalsDifferentType() {
-        assertFalse(baseObject.equals("ok"));
+        assertNotEquals("ok", baseObject);
     }
 
     public void hashcodeSame() {

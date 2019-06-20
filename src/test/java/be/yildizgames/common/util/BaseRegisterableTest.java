@@ -28,10 +28,8 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Grégory Van den Borre
@@ -87,27 +85,27 @@ public class BaseRegisterableTest {
         @Test
         public void sameInstance() {
             BaseRegisterable registerable = new BaseRegisterable("test");
-            assertTrue(registerable.equals(registerable));
+            assertEquals(registerable, registerable);
         }
 
         @Test
         public void sameValue() {
-            assertTrue(new BaseRegisterable("test").equals(new BaseRegisterable("test")));
+            assertEquals(new BaseRegisterable("test"), new BaseRegisterable("test"));
         }
 
         @Test
         public void differentValue() {
-            assertFalse(new BaseRegisterable("test").equals(new BaseRegisterable("test2")));
+            assertNotEquals(new BaseRegisterable("test"), new BaseRegisterable("test2"));
         }
 
         @Test
         public void differentType() {
-            assertFalse(new BaseRegisterable("test").equals("test"));
+            assertNotEquals("test", new BaseRegisterable("test"));
         }
 
         @Test
         public void withNull() {
-            assertFalse(new BaseRegisterable("test").equals(null));
+            assertNotEquals(null, new BaseRegisterable("test"));
         }
     }
 }

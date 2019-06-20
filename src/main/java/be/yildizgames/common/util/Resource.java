@@ -67,7 +67,7 @@ public abstract class Resource extends BaseRegisterable {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj) && this.loaded == Resource.class.cast(obj).loaded;
+        return super.equals(obj) && this.loaded == ((Resource) obj).loaded;
     }
 
     @Override
