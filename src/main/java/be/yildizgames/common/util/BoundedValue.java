@@ -68,11 +68,7 @@ public final class BoundedValue {
     public void setValue(final float value) {
         if (value < 0) {
             this.value = 0;
-        } else if (value > this.max) {
-            this.value = max;
-        } else {
-            this.value = value;
-        }
+        } else this.value = Math.min(value, this.max);
     }
 
     /**

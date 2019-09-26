@@ -125,10 +125,7 @@ public class Util {
      * maximum.
      */
     public static float setLimitedValue(final float value, final float maxValue) {
-        if (value < maxValue) {
-            return value;
-        }
-        return maxValue;
+        return Math.min(value, maxValue);
     }
 
     /**
